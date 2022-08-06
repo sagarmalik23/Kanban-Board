@@ -1,0 +1,188 @@
+nav{
+  background-color:rgb(5, 25, 25);
+  color: white;
+  font-size: 25px;
+  line-height: 55px;
+  margin: 2px 8px;
+}
+
+img{
+  padding-right: 5px;
+  max-width: fit-content;
+  max-height: 25px;
+} 
+
+.Add{
+background-color:lavender;
+font-size: large;
+border-radius: 25px; 
+margin-top: 20%;
+}
+
+.cardtop{
+  background-color: rgb(97, 97, 98);
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
+
+/* .para{
+text-align:center;
+font-size:large;
+margin-top: 60%;
+} */
+
+/* @media (min-width:428px) and (max-width:988px){
+
+.para{
+  text-align:center;
+  font-size:large;
+}
+
+} */
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+
+body{
+overflow-x: hidden;
+/* overflow: hidden; */
+/* overflow-y: hidden; */
+margin: 2px 8px;
+/* margin-bottom: 80px; */
+}
+
+.logout{
+background-color:crimson;
+font-size: 60%;
+border-style: solid;
+color: white;
+border-radius: 10px;
+float:right;
+line-height:130%;
+margin-top: 1%;
+width: 6%;
+word-spacing: 3%;
+} 
+
+.divscroll{
+overflow-y:scroll;
+height:91%;
+overflow-x: hidden;
+/* margin-bottom: 50px */
+}
+
+.highPriorityTask{
+  background-color: rgb(226, 99, 99);
+  border-radius: 10px;
+}
+.lowPriorityTask{
+  background-color: rgb(67, 133, 73);
+  border-radius: 10px;
+}.mediumPriorityTask{
+  background-color: rgb(187, 187, 127);
+  border-radius: 10px;
+}
+
+.coll{
+background-color:thistle;
+margin-top: 80%;
+padding: 10%;
+border-radius: 4%;
+margin-left: 5%;
+}
+
+.update{
+background-color:inherit;
+margin: 2px;
+border-radius: 5px;
+}
+
+.delete{
+background-color: rgb(213, 90, 77);
+margin: 2px;
+border-radius: 5px;
+}
+
+.forward{
+background-color:#d5bdaffc;
+margin: 2px;
+border-radius: 5px;
+}
+
+.backward{
+background-color: rgb(199, 151, 212);
+margin: 2px;
+border-radius: 5px;
+}
+
+.card{
+/* overflow-x: hidden; */
+/* height: auto; */
+word-spacing:1.5px;
+font-size: small;
+border-radius: 10px;
+line-height: 15px;
+}
+
+.fa{
+border-style:solid;
+border-radius: 5px;
+padding: 2%;
+background-color: inherit;
+margin-right: 5px;
+}
+.img{
+/* padding: ; */
+/* image-rendering: crisp-edges; */
+max-width: fit-content;
+max-height: 20px;
+margin-left: 5px;
+padding-right: 10px;
+}
+
+.profile{
+  float:right;
+  margin-top: 1%;
+  margin-right: 10px;
+  /* border-top-right-radius: 10px; */
+  border-radius: 200%;
+}
+
+.high{
+  background-color: rgb(226, 99, 99);
+  border-radius: 50px;
+}
+.low{
+  background-color: rgb(67, 133, 73);
+  border-radius: 50px;
+}
+.normal{
+  background-color: rgb(187, 187, 127);
+  border-radius: 50px;
+}
+.search{
+  margin-left: 35%;
+  line-height: 20px;
+  font-size: small;
+  width: 20%;
+  border-radius: 10px;
+  background-color: lightgrey;
+}
+.jump{
+  background-color: teal;
+  border-radius: 10px;
+  color: white;
+  margin-left: 8px;
+}
+.bar{
+  background-color:lightgray;
+  width: 12%;
+}

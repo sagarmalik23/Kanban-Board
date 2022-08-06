@@ -1,0 +1,90 @@
+<body>
+    <nav class="navv fixed-top opacity-75">
+        <div class="container-fluid">
+            <img class="a" src="..\assets\k 2.jpg" alt="image not found">
+            <a class="navbar-brand" href="#">Kanban-Board</a>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <button class="back" routerLink="/home" type="submit">Back <<</button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="vh-100 gradient-custom sec">
+        <form [formGroup]="AddTask" (ngSubmit)="addTask()" class="form-horizontal">
+
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-2 text-center">
+
+                                <div class="mb-md-2 mt-md-2">
+
+                                    <h3 class="fw-bold mb-2 text-uppercase border-bottom">Add Task</h3>
+
+
+
+                                    <!-- <div class="form-outline form-white mb-4">
+                                        <label style="color: white;">
+                                            <h6 >Task ID:</h6>
+                                        </label>
+                                        <input type="number" id="taskId" formControlName="taskId" name="taskId"
+                                            placeholder="TaskId" class="form-control form-control-lg ab">
+                                        <div *ngIf="taskId?.invalid" class="alert xy"> TaskId is required.</div>
+                                    </div> -->
+                                </div>
+
+
+                                <div class="form-outline form-white mb-4">
+                                    <label style="color: white;">
+                                        <h6>TO DO:</h6>
+                                    </label>
+                                    <input type="text" id="toDo" formControlName="toDo" name="toDo" placeholder="To Do"
+                                        class="form-control form-control-lg ab">
+                                    <div *ngIf="toDo?.invalid" class="alert xy"> Task is required.</div>
+                                </div>
+
+
+                                <div class="form-outline form-white mb-4">
+                                    <label style="color: white;">
+                                        <h6>DeadLine:</h6>
+                                    </label>
+                                    <input type="date" [min]="todayDate" id="deadline" formControlName="deadline" name="deadline"
+                                        placeholder="Dead Line" class="form-control form-control-lg ab">
+                                    <div *ngIf="deadline?.invalid" class="alert xy"> Date required.</div>
+                                </div>
+
+                                <div class="form-outline form-white Radio">
+                                    <!-- <label style="color: white;"> -->
+                                        <div class="prio">Priority:</div><br>
+                                    <!-- </label> -->
+                                    <input type="radio" formControlName="priority" id="low" name="priority" value="Low">
+                                    <label for="low" style="color: white;">Low Priority</label><br>
+                                    <input type="radio" formControlName="priority" id="normal" name="priority"value="Normal">
+                                    <label for="normal" style="color: white;">Normal Priority</label><br>
+                                    <input type="radio" formControlName="priority" id="high" name="priority"value="High">
+                                    <label for="high" style="color: white;">High Priority</label><br>
+
+                                </div>
+
+                                <button class="btn btn-outline-light btn-sm px-5" type="submit"
+                                [disabled]="AddTask.invalid">AddTask</button>
+
+
+                            </div>
+
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </section>
+</body>

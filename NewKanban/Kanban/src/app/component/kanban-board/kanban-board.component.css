@@ -1,0 +1,53 @@
+body{
+    background-image: url("https://insightspotter.com/wp-content/uploads/2021/01/Kanban-Board-Planning-on-demand-1536x864.png");
+    /* width: 100vw;
+    min-height: 100vh; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    /* background-attachment: fixed;
+    background-position: center; */
+}
+img{
+    max-width: fit-content;
+    max-height: 45px;
+    padding-right: 10px;
+}
+
+nav{
+    background-color:gray;
+    line-height: 35px;
+    padding-top: 10px;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+  nav ul li{
+    display: inline-block;
+    line-height: 20px;
+    margin: 0 10px;
+  }
+  /* nav ul li a{
+    color: white;
+    font-size: 12px;
+    padding: 7px 13px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  } */
+
+  label{
+    color: white;
+    font-size: 25px;
+  }
+
+  .btn{
+    background-color:rgb(73, 98, 98);
+    color: white;
+  }
+
+  .but{
+    background-color:rgb(21, 40, 40);
+    color: white;
+  }

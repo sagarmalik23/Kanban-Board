@@ -1,0 +1,210 @@
+<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+    id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<header>
+
+  <nav class="navv fixed-top">
+        <div class="container-fluid">
+          <img class="a" src="..\assets\k 2.jpg" alt="image not found">
+          <a class="navbar-brand" href="#">Kanban-Board</a>
+
+          <input class="search" placeholder="Search Task" type="search" aria-label="Search To-Do List" [(ngModel)]="searchTask">
+          <button class="logout" (click)="logOut()" routerLink="/login" type="submit">Logout</button>
+          <img class="profile" [src]="userImage">
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            
+          </div>
+        </div>
+      </nav>
+</header>
+
+<br>
+<br>
+
+
+<body>
+
+    <div class="row" style="margin-bottom:50px ;">
+    
+      
+      <div class="column-0 col-lg-2 col-xs-12 col-md-12 text-center"  style="background-color:palevioletred" >
+
+        <!-- <div class="divscrolll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, ducimus voluptatum. Nihil, neque! Tempore dolorem voluptatem harum quos repellat iste quaerat cupiditate eveniet, dignissimos cum atque placeat nesciunt culpa omnis.</div> -->
+        <!-- <div class="para">Please add task here :</div> -->
+        <div class="coll">
+          <div class="high">High Priority</div><br> <div class="low">Low Priority</div> <br><div class="normal">Normal Priority</div>
+        <button class="Add" style="font-size:medium ;" routerLink="/addtask">Add Task +</button><br><br>
+       <h6 style="color: black; font-size:medium;">  Total Task ({{count}}) </h6>
+        </div>
+      </div>
+
+
+        <div class="column-1 col-lg-2 col-xs-12 col-md-4" style="background-color:lightblue" >
+          <div class="divscroll">
+          <div class="cardtop" style="width: 90%; margin: 5%;">
+            <div class="card-body">
+         <div class="logoC">To Do <br> <p style="background-color:darkseagreen ;border-radius: 10px;"> ({{ToDoCount}})</p></div>
+            </div>
+      </div>
+      
+          
+      
+          <div class="card" style="width: 90%; margin: 5%;" *ngFor="let u of ToDoList | filter:searchTask">
+            <div class="card-body" [ngClass]="{'highPriorityTask':u.priority==='High','mediumPriorityTask':u.priority==='Normal','lowPriorityTask':u.priority==='Low'}">          
+              <h5 class="card-title">{{u.toDo}}</h5>
+              <p class="card-text">DateAssign : {{u.dateAssign}} <br> DeadLine : {{u.deadline}}</p>
+              <!-- <button class="update" style="color:white ;" (click)="updateTask(u)" type="submit"> Up</button> -->
+              <img class="img" src="https://cdn-icons-png.flaticon.com/512/5278/5278663.png" (click)="updateTask(u)" alt="image not found">
+              <!-- <button class="fa fa-trash" (click)="deleteTask(u)" type="submit"></button> -->
+              <button class="fa fa-trash" (click)="deleteTask(u)" type="submit"> </button>
+              <!-- <button class="forward" (click)="moveForward(u)" type="submit"> =></button> -->
+              <!-- <img class="img" src="https://cdn-icons-png.flaticon.com/512/31/31085.png" (click)="moveForward(u)" alt=">>"> -->
+              <button class="jump" (click)="getTask(u)">Jump</button>
+              <select class="bar" [(ngModel)]="changeTaskStatus"  (ngModelChange)="onTaskSelected($event)">
+                <!-- <option *ngFor="let c of changeStatus" [value]="c.status">{{c.value}}</option> -->
+                <!-- <option value="0">To Do</option> -->
+              <option value="1">Research</option>
+              <option value="2">In-Progress</option>
+              <option value="3">Review</option>
+              <option value="4">Completed</option>
+              </select>
+            </div> 
+          </div>
+        </div>
+      </div>
+        
+        
+
+        
+        <div class="column-2 col-lg-2 col-xs-12 col-md-4"  style="background-color:darkgrey">
+          <div class="divscroll">
+          <div class="cardtop" style="width: 80%; margin: 5%;">
+            <div class="card-body" >
+         <div class="logoC">Research  <br> <p style="background-color:darkseagreen ;border-radius: 10px;">({{ResearchCount}})</p></div>
+            </div>
+            </div>
+
+            
+         <div class="card" style="width: 90%; margin: 5%;" *ngFor="let u of Research | filter:searchTask">
+            <div class="card-body"  [ngClass]="{'highPriorityTask':u.priority==='High','mediumPriorityTask':u.priority==='Normal','lowPriorityTask':u.priority==='Low'}">
+              <h5 class="card-title">{{u.toDo}}   </h5>
+              <p class="card-text">DateAssign : {{u.dateAssign}} <br> Deadline : {{u.deadline}}</p>
+              <!-- <button class="update" style="color: white;" (click)="updateTask(u)" type="submit">Up</button> -->
+              <!-- <button class="fa fa-trash" (click)="deleteTask(u)" type="submit"></button> -->
+              <img class="img" src="https://cdn-icons-png.flaticon.com/512/5278/5278663.png" (click)="updateTask(u)" alt="image not found">
+              <button class="fa fa-trash" (click)="deleteTask(u)" type="submit"> </button>
+
+              <button class="jump" (click)="getTask(u)">Jump</button>
+              <select class="bar" [(ngModel)]="changeTaskStatus"  (ngModelChange)="onTaskSelected($event)">
+              <!-- <option *ngFor="let c of changeStatus" [value]="c.status">{{c.value}}</option> -->
+              <option value="0">To Do</option>
+              <!-- <option value="1">Research</option> -->
+              <option value="2">In-Progress</option>
+              <option value="3">Review</option>
+              <option value="4">Completed</option>
+            </select>
+
+              <!-- <img class="img" src="https://cdn-icons-png.flaticon.com/512/31/31085.png" (click)="moveForward(u)" alt=">>"> -->
+              <!-- <img class="img" src="https://cdn-icons.flaticon.com/png/512/4402/premium/4402628.png?token=exp=1658232050~hmac=9e010367b1b4c83c8962281c6942f7cb" (click)="moveBackward(u)" alt="<<"> -->
+            </div>
+          </div> 
+        </div>
+          </div>
+
+
+          <div class="column-3 col-lg-2 col-xs-12 col-md-4"  style="background-color:rgb(109, 143, 211)">
+            <div class="divscroll">
+            <div class="cardtop" style="width: 80%; margin: 5%;">
+              <div class="card-body" >
+          <div class="logoC">In-Progress  <br><p style="background-color:darkseagreen ;border-radius: 10px;">({{InProgressCount}})</p></div>
+              </div>
+            </div>
+
+            
+        <div class="card" style="width: 90%; margin: 5%;" *ngFor="let u of InProgress | filter:searchTask">
+          <div class="card-body"  [ngClass]="{'highPriorityTask':u.priority==='High','mediumPriorityTask':u.priority==='Normal','lowPriorityTask':u.priority==='Low'}">
+            <h5 class="card-title">{{u.toDo}} </h5>
+            <p class="card-text">DateAssign : {{u.dateAssign}} <br> Deadline : {{u.deadline}}</p>
+            <img class="img" src="https://cdn-icons-png.flaticon.com/512/5278/5278663.png" (click)="updateTask(u)" alt="image not found">
+              <button class="fa fa-trash" (click)="deleteTask(u)" type="submit"> </button>
+
+              <button class="jump" (click)="getTask(u)">Jump</button>
+              <select class="bar" [(ngModel)]="changeTaskStatus"  (ngModelChange)="onTaskSelected($event)">
+              <!-- <option *ngFor="let c of changeStatus" [value]="c.status">{{c.value}}</option> -->
+              <option value="0">To Do</option>
+              <option value="1">Research</option>
+              <!-- <option value="2">In-Progress</option> -->
+              <option value="3">Review</option>
+              <option value="4">Completed</option>
+            </select>
+
+              <!-- <img class="img" src="https://cdn-icons-png.flaticon.com/512/31/31085.png" (click)="moveForward(u)" alt=">>"> -->
+              <!-- <img class="img" src="https://cdn-icons.flaticon.com/png/512/4402/premium/4402628.png?token=exp=1658232050~hmac=9e010367b1b4c83c8962281c6942f7cb" (click)="moveBackward(u)" alt="<<"> -->
+          </div>
+        </div>
+        </div>
+          </div>
+
+        <div class="column-4 col-lg-2 col-xs-12 col-md-6"  style="background-color:rgb(170, 105, 143)">
+          <div class="divscroll">
+          <div class="cardtop" style="width: 80%; margin: 5%;">
+            <div class="card-body" >
+         <div class="logoC">Review  <br><p style="background-color:darkseagreen ;border-radius: 10px;">({{ReviewCount}})</p></div>
+         </div>
+          </div>
+
+        
+        <div class="card" style="width: 90%; margin: 5%;" *ngFor="let u of Review | filter:searchTask">
+          <div class="card-body"  [ngClass]="{'highPriorityTask':u.priority==='High','mediumPriorityTask':u.priority==='Normal','lowPriorityTask':u.priority==='Low'}">
+            <h5 class="card-title">{{u.toDo}}   </h5>
+            <p class="card-text">DateAssign : {{u.dateAssign}} <br> Deadline : {{u.deadline}}</p>
+            <img class="img" src="https://cdn-icons-png.flaticon.com/512/5278/5278663.png" (click)="updateTask(u)" alt="image not found">
+              <button class="fa fa-trash" (click)="deleteTask(u)" type="submit"> </button>
+
+              <button class="jump" (click)="getTask(u)">Jump</button>
+              <select class="bar" [(ngModel)]="changeTaskStatus"  (ngModelChange)="onTaskSelected($event)">
+              <!-- <option *ngFor="let c of changeStatus" [value]="c.status"><div *ngIf="c.status!=3"></div></option> -->
+              <option value="0">To Do</option>
+              <option value="1">Research</option>
+              <option value="2">In-Progress</option>
+              <option value="4">Completed</option>
+            </select>
+
+              <!-- <img class="img" src="https://cdn-icons-png.flaticon.com/512/31/31085.png" (click)="moveForward(u)" alt=">>"> -->
+              <!-- <img class="img" src="https://cdn-icons.flaticon.com/png/512/4402/premium/4402628.png?token=exp=1658232050~hmac=9e010367b1b4c83c8962281c6942f7cb" (click)="moveBackward(u)" alt="<<"> -->
+          </div>
+        </div> 
+        </div>
+        </div>
+        <!-- https://cdn-icons.flaticon.com/png/512/5267/premium/5267979.png?token=exp=1658231488~hmac=869fa8af60c38305f6abdf35d719de16 -->
+
+        <div class="column-5 col-lg-2 col-xs-12 col-md-6"  style="background-color:rgb(136, 156, 105)">
+          <div class="divscroll">
+          <div class="cardtop" style="width: 80%; margin: 5%;">
+            <div class="card-body" >
+         <div class="logoC">Completed  <br><p style="background-color:darkseagreen ;border-radius: 10px;">({{CompletedCount}})</p></div>
+            </div>
+          </div>
+
+        
+        <div class="card" style="width: 90%; margin: 5%;" *ngFor="let u of Completed | filter:searchTask">
+          <div class="card-body"  [ngClass]="{'highPriorityTask':u.priority==='High','mediumPriorityTask':u.priority==='Normal','lowPriorityTask':u.priority==='Low'}">
+            <h5 class="card-title">{{u.toDo}}</h5>
+            <p class="card-text">DateAssign : {{u.dateAssign}} <br> Deadline : {{u.deadline}}</p>
+            <!-- <button class="update" style="color:white" (click)="updateTask(u)" type="submit">  Up</button> -->
+            <!-- <button class="fa fa-trash" (click)="deleteTask(u)" type="submit"></button> -->
+            <button class="fa fa-trash" (click)="deleteTask(u)" type="submit"> </button>
+            <!-- <button class="backward" (click)="moveBackward(u)" type="submit"> <=</button> -->
+            
+
+          </div>
+        </div>
+        </div>
+        </div>
+
+      </div>
+
+    </body>
+    

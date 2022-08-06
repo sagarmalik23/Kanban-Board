@@ -1,0 +1,92 @@
+<body>
+	<nav class="navv fixed-top opacity-75">
+		<div class="container-fluid">
+			<img class="a" src="..\assets\k 2.jpg" alt="image not found">
+			<a class="navbar-brand" href="#">Kanban-Board</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+				aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo02"></div>
+		</div>
+	</nav>
+
+	<section class="text-center text-lg-start sec">
+		<form [formGroup]="userFormGroup" (ngSubmit)="signupdata()" class="form-horizontal">
+
+			<div class="container py-4">
+				<div class="row g-0 align-items-center">
+					<div class="col-lg-6 mb-5 mb-lg-0">
+						<div class="card cascading-right" style="background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px);">
+							<div class="card-body p-5 shadow-5 text-center">
+								<h2 class="fw-bold mb-5 text-uppercase border-bottom">Sign Up Now</h2>
+
+
+								<div class="form-outline mb-4">
+								   <div class="log"><label class="control-label" for="name">Name :</label></div>
+									<div class="controls">
+										<input type="text" id="name" formControlName="name" name="name"
+											placeholder="Name" class="form-control">
+										<!-- <div *ngIf="name?.invalid" class="alert xy"> Name is required.</div> -->
+										<div
+											*ngIf="userFormGroup.get('name')?.invalid && (userFormGroup.dirty || userFormGroup.touched)">
+											<div class="alert xy" *ngIf="userFormGroup.get('name')?.errors?.['required']">
+												Name is required.
+											</div>
+										</div>
+									</div>
+								</div>
+								
+
+								<div class="form-outline mb-4">
+									<div class="log"><label class="control-label" for="username">Email ID :</label></div>
+									<div class="controls">
+										<input type="email" id="emaliId" formControlName="emailId" name="username"
+											placeholder="EmailId" class="form-control">
+										<!-- <div *ngIf="emailId?.invalid" class="alert xy"> EmailId is required.</div> -->
+										<div *ngIf="(userFormGroup.get('emailId')?.touched || userFormGroup.get('emailId')?.dirty) && userFormGroup.get('emailId')?.invalid" class="alert xy">
+                						Valid EmailId required..!
+            							</div>
+									</div>
+								</div>
+
+										<div class="form-outline mb-4">
+											<div class="log"><label class="control-label" for="password">Password :</label></div>
+											<div class="controls">
+												<input type="password" id="password" formControlName="password"
+													name="password" placeholder="Password" class="form-control">
+													<div *ngIf="(userFormGroup.get('password')?.touched || userFormGroup.get('password')?.dirty) && userFormGroup.get('password')?.invalid" class="alert xy">
+														Please Enter Valid Password of length range 6-20
+														</div>
+											</div>
+										</div>
+
+										<div class="form-outline mb-4">
+											<div class="log"><label class="control-label" for="image">Image :</label></div>
+											<div class="controls">
+												<input type="file" (change)="imgSave($event)" id="image" formControlName="image"
+													name="image" placeholder="Image" class="form-control">
+												<div
+											*ngIf="userFormGroup.get('image')?.invalid && (userFormGroup.dirty || userFormGroup.touched)">
+											<div class="alert xy" *ngIf="userFormGroup.get('image')?.errors?.['required']">Image is required.</div>
+										</div>
+											</div>
+										</div>
+
+										<button class="btn btn-dark btn-block mb-3" type="submit"
+											[disabled]="userFormGroup.invalid">Signup</button><br><br>
+										<div>
+											<p class="mb-0">Already Existing User? <a routerLink="/login"
+													class="text-white-50 fw-bold">Login</a>
+											</p>
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		</form>
+	</section>
+</body>
